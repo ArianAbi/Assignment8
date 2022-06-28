@@ -1,5 +1,6 @@
 import React from "react";
-import { LandingPage } from "./Components/LandingPage";
+import { DetailPage } from "./Components/DetailPage";
+import { Products } from "./Components/Products";
 import {
     BrowserRouter as Router,
     Routes,
@@ -7,21 +8,26 @@ import {
     Link,
     BrowserRouter
 } from "react-router-dom";
-import { DetailPage } from "./Components/DetailPage";
+
 import "./main.css"
+import ProductsData from "./products.json"
 
 const App = () => {
+
+    const renderdProducts = ProductsData.map(({ title, description }, i) => {
+        return <Products title={title} description={description} key={i} />
+    })
 
     return (
         <>
             <div className="header">
-                Title
+                <div className="logo">
+                    Assignment 8
+                </div>
             </div>
 
-            <div className="body">
-                <LandingPage />
-                <LandingPage />
-                <LandingPage />
+            <div className="content-container">
+                {renderdProducts}
             </div>
 
             <div className="footer">

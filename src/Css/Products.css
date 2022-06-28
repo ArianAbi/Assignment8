@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    margin: 19px 0;
+    width: 100%;
+}
+
+.content-title-wrap {
+    height: 85%;
+    width: 90%;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.content-title-wrap h3 {
+    margin: 0 0 5px;
+    height: 1.5rem;
+    border-bottom: 1px solid grey;
+}
+
+.content-title-wrap p {
+    height: 0px;
+}
+
+.box {
+    background-color: yellow;
+    margin-right: 10px;
+    height: 90px;
+    aspect-ratio: 1.5/2;
+}
+
+h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.divider {
+    width: 95%;
+    border-bottom: 1px solid #00000020;
+}
