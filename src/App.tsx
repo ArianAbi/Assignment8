@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { DetailPage } from "./Components/DetailPage";
 import { Products } from "./Components/Products";
 import {
@@ -14,10 +15,23 @@ import ProductsData from "./products.json"
 
 const App = () => {
 
-    const renderdProducts = ProductsData.map(({ title, description }, i) => {
-        return <Products title={title} description={description} key={i} />
-    })
+    const [products, setProducts] = useState([]);
 
+    useEffect(() => {
+        (async () => {
+            const fetchedProducts = await axios.get("https://fakestoreapi.com/products")
+
+            setProducts(fetchedProducts.data)
+
+        })()
+    }, [])
+
+
+    const renderdProducts = products.map(({ id, image, price, title, description }) => {
+        return (
+            <Products description={description} title={title} img={image} price={price} key={id} />
+        )
+    })
     return (
         <>
             <div className="header">
