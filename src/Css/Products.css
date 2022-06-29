@@ -11,23 +11,36 @@
 }
 
 .content-title-wrap {
-    height: 85%;
-    width: 90%;
+    height: 100%;
     padding: 5px;
     overflow: hidden;
 }
 
-.content-title-wrap h3 {
+.title {
+    font-weight: 500;
+    height: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     margin: 0 0 5px;
     height: 1.5rem;
-    border-bottom: 1px solid grey;
+
+
+    text-decoration: none;
+    color: black;
 }
 
-.content-title-wrap p {
-    height: 0px;
+.summery>p {
+    height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .img-wraper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-right: 10px;
     height: 90px;
     aspect-ratio: 1.5/2;
@@ -44,6 +57,7 @@ h3 {
 }
 
 .divider {
+    margin: 5px 0;
     width: 95%;
     border-bottom: 1px solid #00000020;
 }

@@ -11,11 +11,11 @@ import {
 } from "react-router-dom";
 
 import "./main.css"
-import ProductsData from "./products.json"
 
 const App = () => {
 
     const [products, setProducts] = useState([]);
+    const [selectedProductId, setSelectedProductId] = useState([])
 
     useEffect(() => {
         (async () => {
@@ -26,12 +26,18 @@ const App = () => {
         })()
     }, [])
 
+    const onProductClick = (props: object) => {
+        console.log(props);
+    }
 
-    const renderdProducts = products.map(({ id, image, price, title, description }) => {
+    const renderdProducts = products.map(({ id, image, title, description }) => {
         return (
-            <Products description={description} title={title} img={image} price={price} key={id} />
+            <Products description={description} title={title} img={image} id={id} key={id} onProductClick={onProductClick} />
         )
     })
+
+
+
     return (
         <>
             <div className="header">
@@ -41,31 +47,36 @@ const App = () => {
             </div>
 
             <div className="content-container">
-                {renderdProducts}
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={renderdProducts} />
+                        <Route path="/productDetail" element={<DetailPage props={selectedProductId} />} />
+                    </Routes>
+                </BrowserRouter>
             </div>
 
             <div className="footer">
                 Footer
             </div>
+
+            {/* <BrowserRouter>
+                <div>route test</div>
+                <div>
+                    <ul>
+                        <li><Link to={"/"} >Home</Link></li>
+                        <li><Link to={"/about"} >about</Link></li>
+                        <li><Link to={"/test"} >test</Link></li>
+                    </ul>
+                </div>
+
+                <Routes>
+                    <Route path="/" ele />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/test" element={<Test />} />
+                </Routes>
+            </BrowserRouter> */}
         </>
     )
-    // return (
-    //     <BrowserRouter>
-    //                 <div>route test</div>
-    //                 <div>
-    //                     <ul>
-    //                         <li><Link to={"/"} >Home</Link></li>
-    //                         <li><Link to={"/about"} >about</Link></li>
-    //                         <li><Link to={"/test"} >test</Link></li>
-    //                     </ul>
-    //                 </div>
 
-    //                 <Routes>
-    //                     <Route path="/" element={<Home />} />
-    //                     <Route path="/about" element={<About />} />
-    //                     <Route path="/test" element={<Test />} />
-    //                 </Routes>
-    //             </BrowserRouter>
-    // )
 }
 export default App
