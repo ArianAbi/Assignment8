@@ -45,8 +45,8 @@ export const DetailPage = ({ selectedProductID }) => {
                         <button >
                             Add to cart
                         </button>
-                        <h3>
-                            {`5.99$`}
+                        <h3 className="price-tag">
+                            {`${fetchedProduct.data.price} $`}
                         </h3>
                     </div>
 

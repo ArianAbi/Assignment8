@@ -56,3 +56,7 @@ h2 {
     transform: scale(1.1);
     box-shadow: 0 5px 15px #00000030;
 }
+
+.shopping-detail>.price-tag {
+    font-size: 1.1rem;
+}
