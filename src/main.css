@@ -39,24 +39,8 @@ body {
     height: 10vh;
 }
 
-ul {
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style-type: none;
-}
-
-li button {
-    width: 85px;
-    height: 36px;
-    font-weight: 500;
-    border: none;
-    background-color: transparent;
-}
-
-.active {
-    border-bottom: 1px solid black;
+.divider {
+    margin: 5px 0;
+    width: 95%;
+    border-bottom: 1px solid #00000020;
 }

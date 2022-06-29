@@ -15,7 +15,7 @@ import "./main.css"
 const App = () => {
 
     const [products, setProducts] = useState([]);
-    const [selectedProductId, setSelectedProductId] = useState([])
+    const [selectedProductID, setSelectedProductID] = useState(0)
 
     useEffect(() => {
         (async () => {
@@ -26,8 +26,8 @@ const App = () => {
         })()
     }, [])
 
-    const onProductClick = (props: object) => {
-        console.log(props);
+    const onProductClick = (id: number) => {
+        setSelectedProductID(id)
     }
 
     const renderdProducts = products.map(({ id, image, title, description }) => {
@@ -50,7 +50,7 @@ const App = () => {
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={renderdProducts} />
-                        <Route path="/productDetail" element={<DetailPage props={selectedProductId} />} />
+                        <Route path="/detailPage" element={<DetailPage selectedProductID={selectedProductID} />} />
                     </Routes>
                 </BrowserRouter>
             </div>

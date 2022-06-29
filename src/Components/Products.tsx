@@ -12,16 +12,9 @@ interface Products {
 
 export const Products: FC<Products> = ({ title, description, img, id, onProductClick }) => {
 
-    const props = {
-        title: title,
-        description: description,
-        img: img,
-        id: id,
-    }
-
     return (
         <>
-            <div className="content" onClick={() => onProductClick(props)}>
+            <div className="content" onClick={() => onProductClick(id)}>
                 <Link to="/detailPage" className="img-wraper"><img src={img} alt="" /></Link>
                 <div className="content-title-wrap">
                     <Link to="/detailPage" className="title">
