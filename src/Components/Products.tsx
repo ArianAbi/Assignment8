@@ -15,9 +15,9 @@ export const Products: FC<Products> = ({ title, description, img, id, onProductC
     return (
         <>
             <div className="content" onClick={() => onProductClick(id)}>
-                <Link to="/detailPage" className="img-wraper"><img src={img} alt="" /></Link>
+                <Link to={`/detailPage/${id}`} className="img-wraper"><img src={img} alt="" /></Link>
                 <div className="content-title-wrap">
-                    <Link to="/detailPage" className="title">
+                    <Link to={`/detailPage/${id}`} className="title">
                         {title}
                     </Link>
                     <div className="divider"></div>

@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Products } from "./Products";
+import { useParams } from "react-router-dom";
 import "../Css/DetailPage.css"
 
-export const DetailPage = ({ selectedProductID }) => {
+export const DetailPage = () => {
 
-    const [fetchedProduct, setFetchedProduct] = useState({})
+    const productProps = { title: '', description: '', image: '', price: '' }
+
+    const [fetchedProduct, setFetchedProduct] = useState(productProps)
+
+    //current product id form url params
+    const { id } = useParams();
+
 
     useEffect(() => {
 
         (async () => {
-            const selectedProduct = await axios.get(`https://fakestoreapi.com/products/${selectedProductID}`)
+            const { title, description, image, price } = await (await axios.get(`https://fakestoreapi.com/products/${id}`)).data
 
-            setFetchedProduct(selectedProduct)
+
+            setFetchedProduct({ title, description, image, price })
 
         })()
 
@@ -26,17 +34,17 @@ export const DetailPage = ({ selectedProductID }) => {
             <div className="detail-container">
                 <div className="product-detail-container">
                     <div className="image-container">
-                        <img src={fetchedProduct.data.image} alt="" />
+                        <img src={fetchedProduct.image} alt="" />
                     </div>
 
                     <h2>
-                        {fetchedProduct.data.title}
+                        {fetchedProduct.title}
                     </h2>
 
                     <div className="divider" style={{ width: "70%" }}></div>
 
                     <p>
-                        {fetchedProduct.data.description}
+                        {fetchedProduct.description}
                     </p>
 
                     <div className="divider"></div>
@@ -46,7 +54,7 @@ export const DetailPage = ({ selectedProductID }) => {
                             Add to cart
                         </button>
                         <h3 className="price-tag">
-                            {`${fetchedProduct.data.price} $`}
+                            {`${fetchedProduct.price} $`}
                         </h3>
                     </div>
 

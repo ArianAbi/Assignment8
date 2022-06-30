@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { DetailPage } from "./Components/DetailPage";
 import { Products } from "./Components/Products";
+import InstagramIcon from '@mui/icons-material/Instagram';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import {
     BrowserRouter as Router,
     Routes,
@@ -50,31 +54,23 @@ const App = () => {
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={renderdProducts} />
-                        <Route path="/detailPage" element={<DetailPage selectedProductID={selectedProductID} />} />
+                        <Route path={`/detailPage/:id`} element={<DetailPage />} />
                     </Routes>
                 </BrowserRouter>
             </div>
 
             <div className="footer">
-                Footer
+                <div>
+                    <FacebookIcon />
+                    <WhatsAppIcon />
+                    <InstagramIcon />
+                    <TwitterIcon />
+                </div>
+                <p>
+                    @2020
+                </p>
             </div>
 
-            {/* <BrowserRouter>
-                <div>route test</div>
-                <div>
-                    <ul>
-                        <li><Link to={"/"} >Home</Link></li>
-                        <li><Link to={"/about"} >about</Link></li>
-                        <li><Link to={"/test"} >test</Link></li>
-                    </ul>
-                </div>
-
-                <Routes>
-                    <Route path="/" ele />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/test" element={<Test />} />
-                </Routes>
-            </BrowserRouter> */}
         </>
     )
 
