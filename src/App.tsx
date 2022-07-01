@@ -6,6 +6,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 import {
     BrowserRouter as Router,
     Routes,
@@ -44,33 +45,35 @@ const App = () => {
 
     return (
         <>
-            <div className="header">
-                <div className="logo">
-                    Assignment 8
+            <BrowserRouter>
+                <div className="header">
+                    <Link to="/" className="store-logo-link">
+                        Fake Store
+                    </Link>
+                    <AccountCircle sx={{ fontSize: "2rem" }} />
                 </div>
-            </div>
 
-            <div className="content-container">
-                <BrowserRouter>
+                <div className="content-container">
+
                     <Routes>
                         <Route path="/" element={renderdProducts} />
                         <Route path={`/detailPage/:id`} element={<DetailPage />} />
                     </Routes>
-                </BrowserRouter>
-            </div>
 
-            <div className="footer">
-                <div>
-                    <FacebookIcon />
-                    <WhatsAppIcon />
-                    <InstagramIcon />
-                    <TwitterIcon />
                 </div>
-                <p>
-                    @2020
-                </p>
-            </div>
 
+                <div className="footer">
+                    <div>
+                        <FacebookIcon />
+                        <WhatsAppIcon />
+                        <InstagramIcon />
+                        <TwitterIcon />
+                    </div>
+                    <p>
+                        @2022
+                    </p>
+                </div>
+            </BrowserRouter>
         </>
     )
 
