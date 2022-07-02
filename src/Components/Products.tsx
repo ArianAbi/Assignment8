@@ -7,10 +7,11 @@ interface Products {
     title: string,
     description: string,
     img: string,
+    price: string,
     onProductClick: CallableFunction
 }
 
-export const Products: FC<Products> = ({ title, description, img, id, onProductClick }) => {
+export const Products: FC<Products> = ({ title, price, description, img, id, onProductClick }) => {
 
     return (
         <>
@@ -23,6 +24,9 @@ export const Products: FC<Products> = ({ title, description, img, id, onProductC
                     <div className="divider"></div>
                     <div className="summery">
                         <p>{description}</p>
+                    </div>
+                    <div className="price-tag">
+                        <span>{price}</span>&#8198;$
                     </div>
                 </div>
 

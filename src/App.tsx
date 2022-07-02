@@ -35,9 +35,9 @@ const App = () => {
         setSelectedProductID(id)
     }
 
-    const renderdProducts = products.map(({ id, image, title, description }) => {
+    const renderdProducts = products.map(({ id, image, title, price, description }) => {
         return (
-            <Products description={description} title={title} img={image} id={id} key={id} onProductClick={onProductClick} />
+            <Products description={description} title={title} img={image} price={price} id={id} key={id} onProductClick={onProductClick} />
         )
     })
 
@@ -63,11 +63,23 @@ const App = () => {
                 </div>
 
                 <div className="footer">
-                    <div>
-                        <FacebookIcon />
-                        <WhatsAppIcon />
-                        <InstagramIcon />
-                        <TwitterIcon />
+                    <div className="social-media-container">
+                        <div>
+                            <FacebookIcon />
+                            <span>Facebook</span>
+                        </div>
+                        <div>
+                            <WhatsAppIcon />
+                            <span>WhatsApp</span>
+                        </div>
+                        <div>
+                            <InstagramIcon />
+                            <span>Instagram</span>
+                        </div>
+                        <div>
+                            <TwitterIcon />
+                            <span>Twitter</span>
+                        </div>
                     </div>
                     <p>
                         @2022

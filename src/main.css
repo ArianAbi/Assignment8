@@ -6,6 +6,7 @@
 
 #root {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     min-height: 100vh;
 }
@@ -49,7 +50,7 @@
     margin-top: auto;
 }
 
-.footer>div {
+.social-media-container {
     display: flex;
     justify-content: space-between;
     width: 40%;
@@ -57,13 +58,51 @@
     margin: 0 0 1.5rem;
 }
 
+.social-media-container>div>span {
+    display: none;
+}
+
 .footer>p {
     color: #5a5a5a;
-
 }
 
 .divider {
     margin: 5px 0;
     width: 95%;
     border-bottom: 1px solid #00000020;
+}
+
+@media only screen and (min-width: 960px) {
+    .content-container {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .footer {
+        height: 300px;
+    }
+
+    .social-media-container {
+        display: flex;
+        align-items: center;
+
+        margin: 50px 0 0;
+        flex-direction: column;
+        height: 70%;
+    }
+
+    .social-media-container>div {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+    }
+
+    .social-media-container>div>span {
+        display: inline;
+        margin: 0 12px;
+    }
+
+    .footer>p {
+        margin: 40px 0;
+    }
 }
